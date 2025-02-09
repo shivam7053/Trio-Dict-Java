@@ -332,7 +332,7 @@ public class ThreeSistersDictionary {
             if (current.entry.getId() == id) {
                 return current.entry.getDescription();
             }
-            current = current.next;
+             current = current.next;
         }
         return null;
     }

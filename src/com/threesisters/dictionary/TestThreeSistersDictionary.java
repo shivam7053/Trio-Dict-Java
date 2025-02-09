@@ -49,5 +49,42 @@ public class TestThreeSistersDictionary {
 
         System.out.println("\n🔹 TEST 6: Printing All Entries...");
         dictionary.printEntries();
+
+        System.out.println("\n🔹 TEST 7: Updating Entries...");
+        dictionary.updateDescription(103, "A large marine predator, known for its sharp teeth");
+        dictionary.updateBriefing(201, "The largest land mammal");
+        System.out.println("Updated Description of ID 103: " + dictionary.getDescription(103));
+        System.out.println("Updated Briefing of ID 201: " + dictionary.getBriefing(201));
+
+        System.out.println("\n🔹 TEST 8: Searching by Keyword...");
+        System.out.println("Entries containing 'large': " + dictionary.searchByKeyword("large"));
+
+        System.out.println("\n🔹 TEST 9: Optimizing Dictionary...");
+        dictionary.insert(103, "Shark", "A large marine predator");
+        dictionary.optimize();
+        System.out.println("✅ Total Entries After Optimization: " + dictionary.size());
+
+        System.out.println("\n🔹 TEST 10: Exporting to JSON...");
+        String json = dictionary.toJSON();
+        System.out.println("JSON Export: " + json);
+
+        System.out.println("\n🔹 TEST 11: Importing from JSON...");
+        ThreeSistersDictionary newDictionary = new ThreeSistersDictionary();
+        newDictionary.fromJSON(json);
+        System.out.println("✅ Total Entries After JSON Import: " + newDictionary.size());
+        newDictionary.printEntries();
+
+        System.out.println("\n🔹 TEST 12: Finding Closest ID...");
+        System.out.println("Closest ID to 150: " + dictionary.findClosestId(150));
+
+        System.out.println("\n🔹 TEST 13: Sorting IDs...");
+        System.out.println("Sorted IDs (Ascending): " + dictionary.getSortedIds(true));
+        System.out.println("Sorted IDs (Descending): " + dictionary.getSortedIds(false));
+
+        System.out.println("\n🔹 TEST 14: Finding IDs by Prefix...");
+        System.out.println("IDs with descriptions starting with 'A': " + dictionary.findIdsByPrefix("A"));
+
+        System.out.println("\n🔹 TEST 15: Getting Random Entry...");
+        System.out.println("Random Entry: " + dictionary.getRandomEntry());
     }
 }
